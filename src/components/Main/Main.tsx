@@ -1,7 +1,11 @@
 import styles from './Main.module.css'
 
 const Main: React.FC = () => {
-    return <>MAIN</>
+    return (
+        <>
+            <main className={styles.main}></main>
+        </>
+    )
 }
 
 export default Main
