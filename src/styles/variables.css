@@ -1,11 +1,15 @@
 :root {
-    --container-width: 1920px;
+    --container-width: 1560px;
     --container-padding-x: 24px;
     --container-padding-mobile-x: 16px;
 
-    --font-family: 'Inter', sans-serif;
+    --font-family: 'Montserrat', sans-serif;
 
-    --color-white: #ffffff;
+    --color-white: #ebebeb;
+    --color-black: #101010;
+    --color-gradient-blue: linear-gradient(50deg, #315ebe 0%, #18264a 100%);
+
+    --border-radius: 6px;
 
     --transition-duration: 0.2s;
 }
