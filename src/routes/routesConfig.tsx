@@ -5,16 +5,16 @@ export const routesConfig = [
     {
         page: <MainPage />,
         url: '/',
-        text: 'список игр',
+        text: 'main',
     },
     {
         page: <GamesPage />,
         url: '/games',
-        text: 'список игр',
+        text: 'games',
     },
-    {
-        page: <MainPage />,
-        url: '/haha',
-        text: 'список игр',
-    },
+    // {
+    //     page: <MainPage />,
+    //     url: '/haha',
+    //     text: 'список игр',
+    // },
 ]

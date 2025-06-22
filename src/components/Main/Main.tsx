@@ -10,10 +10,18 @@ const Main: React.FC = () => {
                 <div className={styles.main__row}>
                     <div className={styles.row__text}>
                         <h1 className={styles.text__title}>
-                            Вся информация о Steam играх.
+                            Вся информация о Steam играх
                         </h1>
                         <h1 className={styles.text__description}>
-                            Источник с подробнной информацией о играх
+                            Откройте для себя полную информацию о любой игре в{' '}
+                            <a
+                                href="https://store.steampowered.com/"
+                                target="_blank"
+                            >
+                                Steam!
+                            </a>{' '}
+                            Получайте подробное описания и узнавайте об
+                            особенностях геймплея!
                         </h1>
                         <Link to="/games" className={styles.text__btn}>
                             Смотреть игры
