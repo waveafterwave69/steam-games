@@ -5,6 +5,7 @@ import { routesConfig } from '../../routes/routesConfig'
 
 const Header: React.FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
+    const [header, setHeader] = useState<boolean>(true)
 
     useEffect(() => {
         if (isOpen) {
@@ -20,10 +21,12 @@ const Header: React.FC = () => {
 
     const toggleMenu = () => {
         setIsOpen((prev) => !prev)
+        setHeader((prev) => !prev)
     }
 
     const handleLinkClick = () => {
         setIsOpen(false)
+        setHeader(true)
     }
 
     return (
@@ -32,7 +35,11 @@ const Header: React.FC = () => {
                 <div className={styles.overlay} onClick={handleLinkClick}></div>
             )}
 
-            <header className={styles.header}>
+            <header
+                className={
+                    header ? `${styles.header}` : `${styles.header__open}`
+                }
+            >
                 <div className="container">
                     <div className={styles.header__row}>
                         <Link to="/" className={styles.header__logo}>
@@ -51,9 +58,6 @@ const Header: React.FC = () => {
 
                         {isOpen && (
                             <nav className={styles.burger__nav}>
-                                <Link to="/" className={styles.burger__logo}>
-                                    SteamGames
-                                </Link>
                                 {routesConfig.map(
                                     (el) =>
                                         el && (

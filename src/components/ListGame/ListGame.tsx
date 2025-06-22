@@ -7,9 +7,11 @@ import CardGame from '../CardGame/CardGame'
 const ListGame: React.FC = () => {
     const [pageCount, setPageCount] = useState<number>(1)
     const [gamesPage, setGamesPage] = useState<RAWGResponse | any>([])
+    const [isLoading, setIsLoading] = useState<boolean>(false)
 
     useEffect(() => {
         const fetchGames = async () => {
+            setIsLoading(true)
             try {
                 const games = await getGames(pageCount)
                 setGamesPage((prev: any) => [...prev, games])
@@ -17,6 +19,7 @@ const ListGame: React.FC = () => {
                 console.error('Error fetching games:', error)
                 setGamesPage(null)
             }
+            setIsLoading(false)
         }
 
         fetchGames()
@@ -30,13 +33,21 @@ const ListGame: React.FC = () => {
         <>
             <section className={styles.games}>
                 <ul className={styles.games__list}>
-                    {gamesPage &&
-                        gamesPage.map((el: any) =>
-                            el.data.results.map((el: any) => (
-                                <CardGame key={el.id} props={el} />
-                            ))
-                        )}
-                    <button onClick={next}>next</button>
+                    <div className={styles.games__content}>
+                        {gamesPage &&
+                            gamesPage.map((el: any) =>
+                                el.data.results.map((el: any) => (
+                                    <CardGame key={el.id} props={el} />
+                                ))
+                            )}
+                    </div>
+                    <button
+                        onClick={next}
+                        className={styles.games__btn}
+                        style={{ opacity: isLoading ? '0.6' : '1' }}
+                    >
+                        {isLoading ? 'Loading...' : 'More Games'}
+                    </button>
                 </ul>
             </section>
         </>
