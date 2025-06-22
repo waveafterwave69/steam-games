@@ -1,0 +1,46 @@
+.games {
+    margin-top: 50px;
+}
+
+.games__list {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 30px;
+    row-gap: 35px;
+    justify-content: center;
+}
+
+
+
+@media (max-width: 1024px) {
+    .games {
+        margin-top: 30px;
+    }
+
+    .games__list {
+        column-gap: 20px;
+        row-gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .games {
+        margin-top: 10px;
+    }
+
+    .games__list {
+        column-gap: 20px;
+        row-gap: 25px;
+    }
+}
+
+@media (max-width: 425px) {
+    .games {
+        margin-top: 0px;
+    }
+
+    .games__list {
+        column-gap: 10px;
+        row-gap: 25px;
+    }
+}

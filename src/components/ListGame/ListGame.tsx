@@ -1,8 +1,9 @@
-// import styles from './ListGame.module.css'
+import styles from './ListGame.module.css'
 import { useEffect, useState } from 'react'
 import { getGames } from '../../data/data'
 import type { RAWGResponse } from '../../types'
 
+import CardGame from '../CardGame/CardGame'
 const ListGame: React.FC = () => {
     const [pageCount, setPageCount] = useState<number>(1)
     const [gamesPage, setGamesPage] = useState<RAWGResponse | any>([])
@@ -21,19 +22,23 @@ const ListGame: React.FC = () => {
         fetchGames()
     }, [pageCount])
 
-    function next() {
+    const next = () => {
         setPageCount((prev) => prev + 1)
     }
 
     return (
         <>
-            <button onClick={next}>next</button>
-            {gamesPage &&
-                gamesPage.map((el: any) =>
-                    el.data.results.map((el: any) => (
-                        <p key={el.id}>{el.slug}</p>
-                    ))
-                )}
+            <section className={styles.games}>
+                <ul className={styles.games__list}>
+                    {gamesPage &&
+                        gamesPage.map((el: any) =>
+                            el.data.results.map((el: any) => (
+                                <CardGame key={el.id} props={el} />
+                            ))
+                        )}
+                    <button onClick={next}>next</button>
+                </ul>
+            </section>
         </>
     )
 }
