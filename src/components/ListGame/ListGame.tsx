@@ -1,4 +1,4 @@
-import styles from './ListGame.module.css'
+// import styles from './ListGame.module.css'
 import { useEffect, useState } from 'react'
 import { getGames } from '../../data/data'
 import type { RAWGResponse } from '../../types'
