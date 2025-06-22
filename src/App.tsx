@@ -5,8 +5,8 @@ import { routesConfig } from './routes/routesConfig'
 const App: React.FC = () => {
     return (
         <>
+            <Header />
             <div className="container">
-                <Header />
                 <Routes>
                     {routesConfig.map(({ page, url }) => (
                         <Route path={url} element={page} />

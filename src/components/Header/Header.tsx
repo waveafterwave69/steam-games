@@ -33,26 +33,47 @@ const Header: React.FC = () => {
             )}
 
             <header className={styles.header}>
-                <div className={styles.header__row}>
-                    <Link to="/" className={styles.header__logo}>
-                        SteamGames
-                    </Link>
-                    <button
-                        className={`${styles.burger} ${
-                            isOpen ? styles.burgerActive : ''
-                        }`}
-                        onClick={toggleMenu}
-                    >
-                        <span className={styles.burgerLine}></span>
-                        <span className={styles.burgerLine}></span>
-                        <span className={styles.burgerLine}></span>
-                    </button>
+                <div className="container">
+                    <div className={styles.header__row}>
+                        <Link to="/" className={styles.header__logo}>
+                            SteamGames
+                        </Link>
+                        <button
+                            className={`${styles.burger} ${
+                                isOpen ? styles.burgerActive : ''
+                            }`}
+                            onClick={toggleMenu}
+                        >
+                            <span className={styles.burgerLine}></span>
+                            <span className={styles.burgerLine}></span>
+                            <span className={styles.burgerLine}></span>
+                        </button>
 
-                    {isOpen && (
-                        <nav className={styles.burger__nav}>
-                            <Link to="/" className={styles.burger__logo}>
-                                SteamGames
-                            </Link>
+                        {isOpen && (
+                            <nav className={styles.burger__nav}>
+                                <Link to="/" className={styles.burger__logo}>
+                                    SteamGames
+                                </Link>
+                                {routesConfig.map(
+                                    (el) =>
+                                        el && (
+                                            <NavLink
+                                                key={el.url}
+                                                className={({ isActive }) =>
+                                                    isActive
+                                                        ? `${styles.burger__link} ${styles.active}`
+                                                        : styles.burger__link
+                                                }
+                                                onClick={handleLinkClick}
+                                                to={el.url}
+                                            >
+                                                {el.text}
+                                            </NavLink>
+                                        )
+                                )}
+                            </nav>
+                        )}
+                        <nav className={styles.header__nav}>
                             {routesConfig.map(
                                 (el) =>
                                     el && (
@@ -60,8 +81,8 @@ const Header: React.FC = () => {
                                             key={el.url}
                                             className={({ isActive }) =>
                                                 isActive
-                                                    ? `${styles.burger__link} ${styles.active}`
-                                                    : styles.burger__link
+                                                    ? `${styles.nav__link} ${styles.active}`
+                                                    : styles.nav__link
                                             }
                                             onClick={handleLinkClick}
                                             to={el.url}
@@ -71,26 +92,7 @@ const Header: React.FC = () => {
                                     )
                             )}
                         </nav>
-                    )}
-                    <nav className={styles.header__nav}>
-                        {routesConfig.map(
-                            (el) =>
-                                el && (
-                                    <NavLink
-                                        key={el.url}
-                                        className={({ isActive }) =>
-                                            isActive
-                                                ? `${styles.nav__link} ${styles.active}`
-                                                : styles.nav__link
-                                        }
-                                        onClick={handleLinkClick}
-                                        to={el.url}
-                                    >
-                                        {el.text}
-                                    </NavLink>
-                                )
-                        )}
-                    </nav>
+                    </div>
                 </div>
             </header>
         </>
