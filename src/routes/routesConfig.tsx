@@ -1,3 +1,4 @@
+import GamesPage from '../pages/GamesPage/GamesPage'
 import MainPage from '../pages/MainPage/MainPage'
 
 export const routesConfig = [
@@ -7,13 +8,13 @@ export const routesConfig = [
         text: 'список игр',
     },
     {
-        page: <MainPage />,
+        page: <GamesPage />,
         url: '/games',
         text: 'список игр',
     },
     {
         page: <MainPage />,
-        url: '/gamess',
+        url: '/haha',
         text: 'список игр',
     },
 ]
