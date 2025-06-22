@@ -1,5 +1,11 @@
 .header {
     padding: 40px 0px;
+    z-index: 10;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    background-color: #101010cc;
+    backdrop-filter: blur(3px);
 }
 
 .header__row {
@@ -133,6 +139,10 @@
 
 
 @media (max-width: 768px) {
+    .header {
+        padding: 30px 0px;
+    }
+
     .burger__nav {
         padding-top: 90px;
     }
@@ -148,13 +158,16 @@
     }
 
     .burger {
-        top: 20px;
+        top: 15px;
         right: 25px;
     }
 
 }
 
 @media (max-width: 425px) {
+    .header {
+        padding: 30px 0px;
+    }
 
     .burger__nav {
         width: 250px;

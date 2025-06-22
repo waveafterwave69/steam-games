@@ -1,0 +1,143 @@
+.games__item {
+    background-color: var(--color-black-alt);
+    border-radius: var(--border-radius);
+    width: 450px;
+}
+
+.item__img {
+    width: 450px;
+    height: 254px;
+    border-radius: var(--border-radius);
+}
+
+.games__content {
+    padding: 20px;
+}
+
+.item__title {
+    font-weight: 600;
+    font-size: 20px;
+    color: var(--color-white);
+    margin-bottom: 15px;
+}
+
+.item__platforms {
+    display: flex;
+    column-gap: 10px;
+    margin-top: 30px;
+}
+
+.item__platforms img {
+    width: 23px;
+}
+
+.item__info {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+
+@media (max-width: 1024px) {
+    .games__item {
+        width: 350px;
+    }
+
+    .item__img {
+        width: 350px;
+        height: 197px;
+    }
+
+    .games__content {
+        padding: 15px;
+    }
+
+    .item__title {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .item__platforms {
+        column-gap: 10px;
+        margin-top: 30px;
+    }
+
+    .item__info {
+        column-gap: 5px;
+        margin-top: 5px;
+        font-size: 14px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .games__item {
+        width: 250px;
+    }
+
+    .item__img {
+        width: 250px;
+        height: 140px;
+    }
+
+    .games__content {
+        padding: 15px 10px;
+    }
+
+    .item__title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .item__platforms {
+        column-gap: 10px;
+        margin-top: 30px;
+    }
+
+    .item__info {
+        column-gap: 5px;
+        margin-top: 5px;
+        font-size: 14px;
+    }
+
+    .item__platforms img {
+        width: 20px;
+    }
+}
+
+@media (max-width: 425px) {
+
+    .games__item {
+        width: 300px;
+    }
+
+    .item__img {
+        width: 300px;
+        height: 169px;
+    }
+
+    .games__content {
+        padding: 18px 20px 18px;
+    }
+
+    .item__title {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .item__platforms {
+        column-gap: 10px;
+        margin-top: 30px;
+    }
+
+    .item__info {
+        column-gap: 5px;
+        margin-top: 5px;
+        font-size: 14px;
+    }
+
+    .item__platforms img {
+        width: 20px;
+    }
+}
