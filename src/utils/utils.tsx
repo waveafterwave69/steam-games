@@ -17,92 +17,49 @@ export const capitalizeWords = (
     }
 }
 
-export const checkPlatforms = (arr: any): JSX.Element | null => {
-    const uniq: string[] = []
+interface PlatformData {
+    platform: {
+        name: string
+    }
+}
 
-    if (arr?.length > 0) {
-        arr.forEach((el: any) => {
-            if (
-                el.platform.name.toLowerCase().includes('pc') &&
-                !uniq.includes('pc')
-            ) {
-                uniq.push('pc')
-            }
-            if (
-                el.platform.name.toLowerCase().includes('playstation') &&
-                !uniq.includes('ps')
-            ) {
-                uniq.push('ps')
-            }
-            if (
-                el.platform.name.toLowerCase().includes('xbox') &&
-                !uniq.includes('xbox')
-            ) {
-                uniq.push('xbox')
-            }
-        })
-
-        if (
-            uniq.includes('pc') &&
-            uniq.includes('ps') &&
-            uniq.includes('xbox')
-        ) {
-            return (
-                <>
-                    <img src={pc} alt="pc" /> <img src={ps} alt="ps" />{' '}
-                    <img src={xbox} alt="xbox" />
-                </>
-            )
-        }
-
-        if (uniq.includes('pc') && uniq.includes('ps')) {
-            return (
-                <>
-                    <img src={pc} alt="pc" /> <img src={ps} alt="ps" />
-                </>
-            )
-        }
-
-        if (uniq.includes('pc') && uniq.includes('xbox')) {
-            return (
-                <>
-                    <img src={pc} alt="pc" /> <img src={xbox} alt="xbox" />
-                </>
-            )
-        }
-
-        if (uniq.includes('ps') && uniq.includes('xbox')) {
-            return (
-                <>
-                    <img src={ps} alt="ps" /> <img src={xbox} alt="xbox" />
-                </>
-            )
-        }
-
-        if (uniq.includes('ps')) {
-            return (
-                <>
-                    <img src={ps} alt="ps" />
-                </>
-            )
-        }
-
-        if (uniq.includes('pc')) {
-            return (
-                <>
-                    <img src={pc} alt="pc" />
-                </>
-            )
-        }
-
-        if (uniq.includes('xbox')) {
-            return (
-                <>
-                    <img src={xbox} alt="xbox" />
-                </>
-            )
-        }
+export const checkPlatforms = (
+    arr: PlatformData[] | undefined | null
+): JSX.Element | null => {
+    if (!arr || arr.length === 0) {
+        return null
     }
 
-    return null
+    const platforms: string[] = []
+
+    arr.forEach((item) => {
+        const platformName = item.platform.name.toLowerCase()
+        if (platformName.includes('pc') && !platforms.includes('pc')) {
+            platforms.push('pc')
+        }
+        if (platformName.includes('playstation') && !platforms.includes('ps')) {
+            platforms.push('ps')
+        }
+        if (platformName.includes('xbox') && !platforms.includes('xbox')) {
+            platforms.push('xbox')
+        }
+    })
+
+    const renderPlatformImages = (): JSX.Element => {
+        const images: JSX.Element[] = []
+
+        if (platforms.includes('pc')) {
+            images.push(<img key="pc" src={pc} alt="PC" />)
+        }
+        if (platforms.includes('ps')) {
+            images.push(<img key="ps" src={ps} alt="PlayStation" />)
+        }
+        if (platforms.includes('xbox')) {
+            images.push(<img key="xbox" src={xbox} alt="Xbox" />)
+        }
+
+        return <>{images}</>
+    }
+
+    return renderPlatformImages()
 }
