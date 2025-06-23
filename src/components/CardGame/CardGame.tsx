@@ -14,9 +14,9 @@ interface CardGameProps {
     }
 }
 
-const CardGame: React.FC<CardGameProps> = ({ props }) => {
+const CardGame: React.FC<CardGameProps | any> = ({ props }) => {
     return (
-        <li className={styles.games__item}>
+        <div className={styles.games__item}>
             <img
                 src={props.background_image}
                 alt="img"
@@ -36,7 +36,7 @@ const CardGame: React.FC<CardGameProps> = ({ props }) => {
                     {checkPlatforms(props.platforms)}
                 </p>
             </div>
-        </li>
+        </div>
     )
 }
 

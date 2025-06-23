@@ -107,7 +107,6 @@
 }
 
 @media (max-width: 425px) {
-
     .games__item {
         width: 300px;
     }
