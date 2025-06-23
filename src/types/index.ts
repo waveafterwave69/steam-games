@@ -76,7 +76,7 @@ export interface RAWGResponse {
     statusText: string
 }
 
-interface Game {
+export interface Game {
     id: number
     slug: string
     name: string

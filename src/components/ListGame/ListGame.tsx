@@ -1,33 +1,9 @@
 import styles from './ListGame.module.css'
-import { useEffect, useState } from 'react'
-import { getGames } from '../../data/data'
-import type { RAWGResponse } from '../../types'
 
 import CardGame from '../CardGame/CardGame'
+import useGetGames from '../../hooks/useGetGames'
 const ListGame: React.FC = () => {
-    const [pageCount, setPageCount] = useState<number>(1)
-    const [gamesPage, setGamesPage] = useState<RAWGResponse | any>([])
-    const [isLoading, setIsLoading] = useState<boolean>(false)
-
-    useEffect(() => {
-        const fetchGames = async () => {
-            setIsLoading(true)
-            try {
-                const games = await getGames(pageCount)
-                setGamesPage((prev: any) => [...prev, games])
-            } catch (error) {
-                console.error('Error fetching games:', error)
-                setGamesPage(null)
-            }
-            setIsLoading(false)
-        }
-
-        fetchGames()
-    }, [pageCount])
-
-    const next = () => {
-        setPageCount((prev) => prev + 1)
-    }
+    const { gamesPage, isLoading, next } = useGetGames()
 
     return (
         <>

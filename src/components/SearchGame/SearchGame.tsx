@@ -1,50 +1,19 @@
-import React, { useState, useEffect, useCallback } from 'react'
-import { searchGame } from '../../data/data'
-import type { AxiosResponse } from 'axios'
+import React from 'react'
 import ListGame from '../ListGame/ListGame'
-import CardGame from '../CardGame/CardGame'
 import styles from './SearchGame.module.css'
-
 import search from '../../img/search.svg'
+import useGetSearchGames from '../../hooks/useGetSearchGames'
+import SearchList from '../SearchList/SearchList'
 
-interface Game {
-    id: number
-    name: string
-    background_image: string
-}
-
-function SearchGame() {
-    const [searchTerm, setSearchTerm] = useState('')
-    const [games, setGames] = useState<Game[]>([])
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState<string | null>(null)
-
-    const memoizedSearchGames = useCallback(async () => {
-        setLoading(true)
-        setError(null)
-
-        try {
-            const response: AxiosResponse<any> | undefined = await searchGame(
-                searchTerm
-            )
-
-            if (response && response.status === 200 && response.data.results) {
-                setGames(response.data.results)
-            } else {
-                setError('Не удалось получить результаты поиска.')
-                setGames([])
-            }
-        } catch (e: any) {
-            setError(e.message || 'An error occurred.')
-            setGames([])
-        } finally {
-            setLoading(false)
-        }
-    }, [searchTerm, searchGame])
-
-    useEffect(() => {
-        memoizedSearchGames()
-    }, [memoizedSearchGames])
+const SearchGame: React.FC = () => {
+    const {
+        searchTerm,
+        setSearchTerm,
+        games,
+        loading,
+        error,
+        search: memoizedSearchGames,
+    } = useGetSearchGames()
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(event.target.value)
@@ -88,11 +57,7 @@ function SearchGame() {
             {error && <div className="error-message">Ошибка: {error}</div>}
 
             {searchTerm && games.length > 0 ? (
-                <div className={styles.games__content}>
-                    {games.map((game) => (
-                        <CardGame key={game.id} props={game} />
-                    ))}
-                </div>
+                <SearchList games={games} />
             ) : (
                 <ListGame />
             )}
