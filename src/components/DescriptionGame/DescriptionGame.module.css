@@ -1,0 +1,144 @@
+.description {
+    margin-top: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.description__title {
+    font-weight: 600;
+    font-size: 42px;
+    color: var(--color-white);
+    margin-bottom: 40px;
+}
+
+.description__text {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 140%;
+    color: var(--color-white);
+    margin-bottom: 50px;
+}
+
+.metacritic {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+    margin-bottom: 50px;
+}
+
+.metacritic__content {
+    display: flex;
+    align-items: center;
+    column-gap: 7px;
+}
+
+.metacritic__content img {
+    width: 50px;
+}
+
+.metacritic__content span {
+    font-weight: 400;
+    font-size: 32px;
+    color: var(--color-white);
+    line-height: 70%;
+}
+
+.metacritic__score {
+    border-radius: 13px;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--color-white);
+}
+
+@media (max-width: 1024px) {
+    .description {
+        margin-top: 150px;
+    }
+
+    .description__title {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .description__text {
+        font-weight: 300;
+        font-size: 17px;
+        line-height: 140%;
+        margin-bottom: 50px;
+    }
+
+    .metacritic {
+        display: flex;
+        align-items: center;
+        column-gap: 15px;
+        margin-bottom: 50px;
+    }
+
+    .metacritic__content {
+        display: flex;
+        align-items: center;
+        column-gap: 7px;
+    }
+
+    .metacritic__content img {
+        width: 45px;
+    }
+
+    .metacritic__content span {
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 70%;
+    }
+
+    .metacritic__score {
+        padding: 10px;
+        font-size: 24px;
+        font-weight: 600;
+    }
+}
+
+@media (max-width: 550px) {
+    .description {
+        margin-top: 120px;
+    }
+
+    .description__title {
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
+
+    .description__text {
+        font-weight: 300;
+        font-size: 15px;
+        padding: 0px 5px;
+        line-height: 150%;
+        margin-bottom: 50px;
+    }
+
+    .metacritic {
+        column-gap: 10px;
+        margin-bottom: 50px;
+    }
+
+    .metacritic__content {
+        display: flex;
+        align-items: center;
+        column-gap: 7px;
+    }
+
+    .metacritic__content img {
+        width: 40px;
+    }
+
+    .metacritic__content span {
+        font-size: 28px;
+    }
+
+    .metacritic__score {
+        padding: 9px;
+        font-size: 22px;
+        font-weight: 600;
+    }
+}

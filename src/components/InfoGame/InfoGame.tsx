@@ -5,6 +5,7 @@ import styles from './InfoGame.module.css'
 import spinner from '../../img/spinner.svg'
 
 import PromoGame from '../PromoGame/PromoGame'
+import DescriptionGame from '../DescriptionGame/DescriptionGame'
 
 const InfoGame: React.FC = () => {
     const { id } = useParams<string>()
@@ -17,7 +18,7 @@ const InfoGame: React.FC = () => {
             {loading && <img src={spinner} className={styles.spinner} />}
             <section className={styles.info}>
                 <PromoGame game={game} loading={loading} />
-                {/* <p>{game?.description_raw}</p> */}
+                <DescriptionGame game={game} loading={loading} />
             </section>
         </>
     )
