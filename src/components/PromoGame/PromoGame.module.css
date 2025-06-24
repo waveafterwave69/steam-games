@@ -10,6 +10,8 @@
 }
 
 .info__title {
+    max-width: 900px;
+    margin: 0 auto;
     color: var(--color-white);
     font-weight: 700;
     font-size: 92px;
@@ -46,7 +48,7 @@
     margin-bottom: 5px;
     column-gap: 8px;
     align-items: flex-start;
-    margin-bottom: 420px;
+    margin-bottom: 310px;
 }
 
 .item__info img {
