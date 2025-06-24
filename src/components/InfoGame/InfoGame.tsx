@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import useGetInfoGame from '../../hooks/useGetInfoGame'
 import styles from './InfoGame.module.css'
