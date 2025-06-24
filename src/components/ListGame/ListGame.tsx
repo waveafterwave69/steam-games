@@ -2,6 +2,9 @@ import styles from './ListGame.module.css'
 
 import CardGame from '../CardGame/CardGame'
 import useGetGames from '../../hooks/useGetGames'
+
+import spinner from '../../img/spinner.svg'
+
 const ListGame: React.FC = () => {
     const { gamesPage, isLoading, next } = useGetGames()
 
@@ -17,13 +20,17 @@ const ListGame: React.FC = () => {
                                 ))
                             )}
                     </div>
-                    <button
-                        onClick={next}
-                        className={styles.games__btn}
-                        style={{ opacity: isLoading ? '0.6' : '1' }}
-                    >
-                        {isLoading ? 'Loading...' : 'More Games'}
-                    </button>
+                    {!isLoading ? (
+                        <button
+                            onClick={next}
+                            className={styles.games__btn}
+                            style={{ opacity: isLoading ? '0.6' : '1' }}
+                        >
+                            More Games
+                        </button>
+                    ) : (
+                        <img src={spinner} className={styles.spinner} />
+                    )}
                 </ul>
             </section>
         </>

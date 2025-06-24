@@ -2,6 +2,7 @@ import styles from './CardGame.module.css'
 import { capitalizeWords, checkPlatforms } from '../../utils/utils'
 import star from '../../img/star.svg'
 import React from 'react'
+import { Link } from 'react-router'
 
 interface CardGameProps {
     props: {
@@ -16,7 +17,7 @@ interface CardGameProps {
 
 const CardGame: React.FC<CardGameProps | any> = ({ props }) => {
     return (
-        <div className={styles.games__item}>
+        <Link to={`/games/${props.id}`} className={styles.games__item}>
             <img
                 src={props.background_image}
                 alt="img"
@@ -36,7 +37,7 @@ const CardGame: React.FC<CardGameProps | any> = ({ props }) => {
                     {checkPlatforms(props.platforms)}
                 </p>
             </div>
-        </div>
+        </Link>
     )
 }
 

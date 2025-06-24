@@ -29,6 +29,15 @@
     color: var(--color-white);
     margin-top: 30px;
     margin-bottom: 50px;
+    column-gap: 5px;
+}
+
+.spinner {
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 50px;
 }
 
 @media (max-width: 1024px) {
@@ -79,5 +88,10 @@
         width: 220px;
         padding: 11px 0px;
         font-size: 16px;
+    }
+
+    .spinner {
+        margin-top: 0px;
+        width: 65px;
     }
 }

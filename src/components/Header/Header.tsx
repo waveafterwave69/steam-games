@@ -60,7 +60,7 @@ const Header: React.FC = () => {
                             <nav className={styles.burger__nav}>
                                 {routesConfig.map(
                                     (el) =>
-                                        el && (
+                                        el.text && (
                                             <NavLink
                                                 key={el.url}
                                                 className={({ isActive }) =>
@@ -80,7 +80,7 @@ const Header: React.FC = () => {
                         <nav className={styles.header__nav}>
                             {routesConfig.map(
                                 (el) =>
-                                    el && (
+                                    el.text && (
                                         <NavLink
                                             key={el.url}
                                             className={({ isActive }) =>
