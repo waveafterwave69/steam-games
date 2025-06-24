@@ -101,12 +101,12 @@
 
 @media (max-width: 550px) {
     .description {
-        margin-top: 120px;
+        margin-top: 150px;
     }
 
     .description__title {
         font-size: 26px;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
     }
 
     .description__text {
