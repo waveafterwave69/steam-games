@@ -10,6 +10,8 @@ const InfoGame: React.FC = () => {
     const { id } = useParams<string>()
     const { loading, game } = useGetInfoGame(id)
 
+    console.log(game)
+
     return (
         <>
             {loading && <img src={spinner} className={styles.spinner} />}

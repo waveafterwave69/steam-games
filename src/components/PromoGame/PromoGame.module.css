@@ -158,9 +158,9 @@
     }
 
     .info__title {
-        font-size: 32px;
-        padding-top: 40px;
-        margin-bottom: 10px;
+        font-size: 34px;
+        padding-top: 55px;
+        margin-bottom: 15px;
     }
 
     .info__release {
@@ -177,7 +177,7 @@
         font-size: 18px;
         margin-bottom: 5px;
         column-gap: 5px;
-        margin-bottom: 250px;
+        margin-bottom: 220px;
     }
 
     .item__info img {

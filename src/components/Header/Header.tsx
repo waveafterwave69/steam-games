@@ -42,7 +42,7 @@ const Header: React.FC = () => {
             >
                 <div className="container">
                     <div className={styles.header__row}>
-                        <Link to="/" className={styles.header__logo}>
+                        <Link to="/games" className={styles.header__logo}>
                             SteamGames
                         </Link>
                         <button
