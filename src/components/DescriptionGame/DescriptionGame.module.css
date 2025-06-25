@@ -3,6 +3,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgb(12, 12, 12);
+    padding: 70px 100px;
+    border-radius: 15px;
 }
 
 .description__title {
@@ -24,7 +27,6 @@
     display: flex;
     align-items: center;
     column-gap: 15px;
-    margin-bottom: 50px;
 }
 
 .metacritic__content {
@@ -55,6 +57,7 @@
 @media (max-width: 1024px) {
     .description {
         margin-top: 150px;
+        padding: 30px 70px;
     }
 
     .description__title {
@@ -73,7 +76,6 @@
         display: flex;
         align-items: center;
         column-gap: 15px;
-        margin-bottom: 50px;
     }
 
     .metacritic__content {
@@ -102,6 +104,7 @@
 @media (max-width: 550px) {
     .description {
         margin-top: 150px;
+        padding: 20px 20px;
     }
 
     .description__title {
@@ -119,7 +122,6 @@
 
     .metacritic {
         column-gap: 10px;
-        margin-bottom: 50px;
     }
 
     .metacritic__content {
@@ -129,16 +131,16 @@
     }
 
     .metacritic__content img {
-        width: 40px;
+        width: 30px;
     }
 
     .metacritic__content span {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     .metacritic__score {
-        padding: 9px;
-        font-size: 22px;
+        padding: 7px;
+        font-size: 17px;
         font-weight: 600;
     }
 }

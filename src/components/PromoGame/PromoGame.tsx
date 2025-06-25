@@ -10,7 +10,6 @@ const PromoGame: React.FC<any> = ({ game, loading }) => {
                 <section className={styles.info__promo}>
                     <img
                         src={game?.background_image}
-                        // background_image_additional
                         alt="bg"
                         className={styles.info__bg}
                     />

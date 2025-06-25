@@ -1,0 +1,152 @@
+.screenshots {
+    margin-top: 180px;
+}
+
+.screenshots__title {
+    font-weight: 600;
+    font-size: 42px;
+    color: var(--color-white);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.screenshots__column {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.screenshots__image {
+    width: 680px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.screenshots__image:hover {
+    transform: scale(1.02);
+}
+
+.fullscreen__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+}
+
+.fullscreen__image {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+}
+
+@media (max-width: 1024px) {
+    .screenshots__title {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .screenshots {
+        margin-top: 150px;
+    }
+
+    .screenshots__title {
+        font-size: 32px;
+        margin-bottom: 40px;
+    }
+
+    .screenshots__column {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .screenshots__image {
+        width: 580px;
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .screenshots__image:hover {
+        transform: scale(1.02);
+    }
+
+    .fullscreen__overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        cursor: pointer;
+    }
+
+    .fullscreen__image {
+        max-width: 95%;
+        max-height: 95%;
+        object-fit: contain;
+    }
+}
+
+@media (max-width: 550px) {
+    .screenshots {
+        margin-top: 100px;
+    }
+
+    .screenshots__title {
+        font-size: 26px;
+        margin-bottom: 25px;
+    }
+
+    .screenshots__column {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .screenshots__image {
+        width: 580px;
+        object-fit: cover;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .screenshots__image:hover {
+        transform: scale(1.02);
+    }
+
+    .fullscreen__overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        cursor: pointer;
+    }
+
+    .fullscreen__image {
+        max-width: 95%;
+        max-height: 95%;
+        object-fit: contain;
+    }
+}

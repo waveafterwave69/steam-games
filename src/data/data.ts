@@ -36,3 +36,14 @@ export async function getGameInfo(id: string | undefined) {
         console.error(error)
     }
 }
+
+export async function getScreenshots(id: string | undefined) {
+    try {
+        const response = await axios.get(
+            `https://api.rawg.io/api/games/${id}/screenshots?key=${apiKey}`
+        )
+        return response
+    } catch (error) {
+        console.error(error)
+    }
+}
