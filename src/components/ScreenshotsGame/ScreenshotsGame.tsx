@@ -7,7 +7,6 @@ const ScreenshotsGame: React.FC = () => {
     const { id } = useParams<string>()
     const { screenshots, loading } = useGetScreenshots(id)
     const [fullscreenImage, setFullscreenImage] = useState<string | null>(null)
-    console.log(fullscreenImage)
 
     const handleImageClick = (imageSrc: string) => {
         setFullscreenImage(imageSrc)

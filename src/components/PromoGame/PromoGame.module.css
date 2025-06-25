@@ -9,6 +9,10 @@
     left: 0;
 }
 
+.item__video {
+    width: 300px;
+}
+
 .info__title {
     max-width: 900px;
     margin: 0 auto;

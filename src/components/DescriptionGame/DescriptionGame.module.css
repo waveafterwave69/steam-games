@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgb(12, 12, 12);
+    background-color: rgb(11, 11, 11);
     padding: 70px 100px;
     border-radius: 15px;
 }
@@ -17,9 +17,9 @@
 
 .description__text {
     font-weight: 300;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 140%;
-    color: var(--color-white);
+    color: #dadada;
     margin-bottom: 50px;
 }
 
@@ -67,7 +67,7 @@
 
     .description__text {
         font-weight: 300;
-        font-size: 17px;
+        font-size: 16px;
         line-height: 140%;
         margin-bottom: 50px;
     }
@@ -104,7 +104,7 @@
 @media (max-width: 550px) {
     .description {
         margin-top: 150px;
-        padding: 20px 20px;
+        padding: 30px 20px 45px;
     }
 
     .description__title {
@@ -114,8 +114,7 @@
 
     .description__text {
         font-weight: 300;
-        font-size: 15px;
-        padding: 0px 5px;
+        font-size: 14px;
         line-height: 150%;
         margin-bottom: 50px;
     }
