@@ -7,6 +7,7 @@ import spinner from '../../img/spinner.svg'
 
 const ListGame: React.FC = () => {
     const { gamesPage, isLoading, next } = useGetGames()
+    console.log(gamesPage)
 
     return (
         <>

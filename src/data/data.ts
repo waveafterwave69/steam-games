@@ -47,3 +47,32 @@ export async function getScreenshots(id: string | undefined) {
         console.error(error)
     }
 }
+
+export async function getCategories() {
+    try {
+        const response = await axios.get(
+            `https://api.rawg.io/api/tags?key=${apiKey}`
+        )
+        return response
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+export async function getCurrCategory(
+    tags: string | undefined,
+    page: number | undefined
+) {
+    try {
+        const response = await axios.get(`https://api.rawg.io/api/games`, {
+            params: {
+                key: apiKey,
+                tags: tags,
+                page: page,
+            },
+        })
+        return response
+    } catch (error) {
+        console.error(error)
+    }
+}
