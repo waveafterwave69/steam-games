@@ -12,13 +12,20 @@ interface UseGetSearchGamesReturn {
     search: () => Promise<void>
 }
 
-const useGetSearchGames = (): UseGetSearchGamesReturn => {
-    const [searchTerm, setSearchTerm] = useState('')
+const useGetSearchGames = (
+    initialSearchTerm: string = ''
+): UseGetSearchGamesReturn => {
+    const [searchTerm, setSearchTerm] = useState(initialSearchTerm)
     const [games, setGames] = useState<Game[]>([])
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
 
     const search = useCallback(async () => {
+        if (!searchTerm) {
+            setGames([])
+            return
+        }
+
         setLoading(true)
         setError(null)
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react' // Import useState
 import ListGame from '../ListGame/ListGame'
 import styles from './SearchGame.module.css'
 import search from '../../img/search.svg'
@@ -6,17 +6,26 @@ import useGetSearchGames from '../../hooks/useGetSearchGames'
 import SearchList from '../SearchList/SearchList'
 
 const SearchGame: React.FC = () => {
+    const [localSearchTerm, setLocalSearchTerm] = useState<string>(() => {
+        const storedSearchTerm = localStorage.getItem('searchTerm')
+        return storedSearchTerm || ''
+    })
+
     const {
-        searchTerm,
         setSearchTerm,
         games,
         loading,
         error,
         search: memoizedSearchGames,
-    } = useGetSearchGames()
+    } = useGetSearchGames(localSearchTerm)
+
+    useEffect(() => {
+        localStorage.setItem('searchTerm', localSearchTerm)
+        setSearchTerm(localSearchTerm)
+    }, [localSearchTerm, setSearchTerm])
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchTerm(event.target.value)
+        setLocalSearchTerm(event.target.value)
     }
 
     const handleSearchClick = () => {
@@ -35,7 +44,7 @@ const SearchGame: React.FC = () => {
                 <input
                     type="text"
                     placeholder="Game name..."
-                    value={searchTerm}
+                    value={localSearchTerm}
                     autoComplete="off"
                     onChange={handleInputChange}
                     onKeyPress={handleKeyPress}
@@ -56,8 +65,8 @@ const SearchGame: React.FC = () => {
 
             {error && <div className="error-message">Ошибка: {error}</div>}
 
-            {searchTerm && games.length > 0 ? (
-                <SearchList games={games} />
+            {localSearchTerm.length > 0 ? (
+                <SearchList games={games} loading={loading} />
             ) : (
                 <ListGame />
             )}
