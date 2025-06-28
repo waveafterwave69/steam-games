@@ -8,6 +8,7 @@ import PromoGame from '../PromoGame/PromoGame'
 import DescriptionGame from '../DescriptionGame/DescriptionGame'
 import ScreenshotsGame from '../ScreenshotsGame/ScreenshotsGame'
 import SystemGame from '../SystemGame/SystemGame'
+import SameCategories from '../SameCategories/SameCategories'
 
 const InfoGame: React.FC = () => {
     const { id } = useParams<string>()
@@ -19,8 +20,9 @@ const InfoGame: React.FC = () => {
             <section className={styles.info}>
                 <PromoGame game={game} loading={loading} />
                 <DescriptionGame game={game} loading={loading} />
-                <ScreenshotsGame />
+                <ScreenshotsGame loading={loading} />
                 <SystemGame game={game} loading={loading} />
+                <SameCategories categories={game?.tags} loading={loading} />
             </section>
         </>
     )

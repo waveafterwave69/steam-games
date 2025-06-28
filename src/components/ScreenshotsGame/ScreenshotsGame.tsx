@@ -3,9 +3,9 @@ import useGetScreenshots from '../../hooks/useGetScreenshots'
 import styles from './ScreenshotsGame.module.css'
 import { useEffect, useState } from 'react'
 
-const ScreenshotsGame: React.FC = () => {
+const ScreenshotsGame: React.FC<any> = ({ loading }) => {
     const { id } = useParams<string>()
-    const { screenshots, loading } = useGetScreenshots(id)
+    const { screenshots, isLoading } = useGetScreenshots(id)
     const [fullscreenImage, setFullscreenImage] = useState<string | null>(null)
 
     const handleImageClick = (imageSrc: string) => {
@@ -30,7 +30,7 @@ const ScreenshotsGame: React.FC = () => {
 
     return (
         <>
-            {!loading && (
+            {!isLoading && !loading && (
                 <section className={styles.screenshots}>
                     <h1 className={styles.screenshots__title}>Скриншоты</h1>
                     <div className={styles.screenshots__column}>

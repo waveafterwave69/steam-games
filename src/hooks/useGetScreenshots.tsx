@@ -3,13 +3,13 @@ import { getGameInfo, getScreenshots } from '../data/data'
 
 interface UseGetInfoGameReturn {
     screenshots: any
-    loading: boolean
+    isLoading: boolean
     error: string | null
 }
 
 const useGetScreenshots = (id: string | undefined): UseGetInfoGameReturn => {
     const [screenshots, setScreenshots] = useState<any | null>(null)
-    const [loading, setLoading] = useState(false)
+    const [isLoading, setLoading] = useState(false)
     const [error, setError] = useState<string | null>(null)
 
     const fetchGames = useCallback(
@@ -41,7 +41,7 @@ const useGetScreenshots = (id: string | undefined): UseGetInfoGameReturn => {
 
     return {
         screenshots,
-        loading,
+        isLoading,
         error,
     }
 }
