@@ -1,8 +1,9 @@
 import React from 'react'
 import styles from './SystemGame.module.css'
+import type { Game } from '../../types'
 
 interface SystemGameProps {
-    game: any
+    game: Game[] | any
     loading: boolean
 }
 

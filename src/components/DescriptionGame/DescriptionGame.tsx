@@ -1,8 +1,14 @@
 import styles from './DescriptionGame.module.css'
 
 import metacritic from '../../img/metacritic.svg'
+import type { Game } from '../../types'
 
-const DescriptionGame: React.FC<any> = ({ game, loading }) => {
+interface CardGameProps {
+    game: Game
+    loading: boolean
+}
+
+const DescriptionGame: React.FC<CardGameProps> = ({ game, loading }) => {
     return (
         <>
             {!loading && (

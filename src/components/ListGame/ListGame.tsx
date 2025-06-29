@@ -4,6 +4,7 @@ import CardGame from '../CardGame/CardGame'
 import useGetGames from '../../hooks/useGetGames'
 
 import spinner from '../../img/spinner.svg'
+import type { Game, RAWGResponse } from '../../types'
 
 const ListGame: React.FC = () => {
     const { gamesPage, isLoading, next } = useGetGames()
@@ -15,8 +16,8 @@ const ListGame: React.FC = () => {
                 <ul className={styles.games__list}>
                     <div className={styles.games__content}>
                         {gamesPage &&
-                            gamesPage.map((el: any) =>
-                                el.data.results.map((el: any) => (
+                            gamesPage.map((el: RAWGResponse) =>
+                                el.data.results.map((el: Game) => (
                                     <CardGame key={el.id} props={el} />
                                 ))
                             )}

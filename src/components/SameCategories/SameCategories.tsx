@@ -1,7 +1,16 @@
+import type { CategoriesProps } from '../../types'
 import CategoriesCard from '../CategoriesCard/CategoriesCard'
 import styles from './SameCategories.module.css'
 
-const SameCategories: React.FC<any> = ({ categories, loading }) => {
+interface SameCategoriesProps {
+    categories: CategoriesProps[]
+    loading: boolean
+}
+
+const SameCategories: React.FC<SameCategoriesProps> = ({
+    categories,
+    loading,
+}) => {
     return (
         <>
             {!loading && (
@@ -11,7 +20,7 @@ const SameCategories: React.FC<any> = ({ categories, loading }) => {
                     </h1>
                     <ul className={styles.list}>
                         {categories &&
-                            categories.map((item: any) => (
+                            categories.map((item: CategoriesProps) => (
                                 <CategoriesCard item={item} key={item.id} />
                             ))}
                     </ul>

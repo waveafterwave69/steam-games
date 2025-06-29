@@ -2,8 +2,14 @@ import styles from './PromoGame.module.css'
 import { capitalizeWords, checkPlatforms } from '../../utils/utils'
 
 import star from '../../img/star.svg'
+import type { Game } from '../../types'
 
-const PromoGame: React.FC<any> = ({ game, loading }) => {
+interface PromoGameProps {
+    game: Game
+    loading: boolean
+}
+
+const PromoGame: React.FC<PromoGameProps> = ({ game, loading }) => {
     return (
         <>
             {!loading && (
@@ -21,7 +27,7 @@ const PromoGame: React.FC<any> = ({ game, loading }) => {
                     <p className={styles.info__developers}>
                         by:{' '}
                         {game?.developers.map(
-                            (developer: any) => developer?.name
+                            (developer: Game) => developer?.name
                         )}
                     </p>
                     <p className={styles.item__info}>

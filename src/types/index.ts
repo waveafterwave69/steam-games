@@ -21,6 +21,7 @@ export interface RAWGResponse {
     }
     data: {
         count: number
+
         next: string | null
         previous: string | null
         results: Game[]
@@ -82,6 +83,9 @@ export interface Game {
     name: string
     released: string
     tba: boolean
+    description_raw: string
+    metacritic_url: string
+    developers: []
     background_image: string
     rating: number
     rating_top: number
@@ -130,4 +134,29 @@ export interface RAWGTag {
     games_count: number
     image_background: string
     language: string
+}
+
+export interface CategoriesProps {
+    games: Game[]
+    games_count: number
+    id: number
+    image_background: string
+    language: string
+    name: string
+    slug: string
+}
+
+export interface CategoryResult {
+    id: number
+    name: string
+    slug: string
+    games_count: number
+    image: string
+}
+
+export interface ScreenshotsGame {
+    count: number
+    next: string | null
+    previous: string | null
+    results: CategoryResult[]
 }

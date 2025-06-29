@@ -1,7 +1,12 @@
 import styles from './CategoriesList.module.css'
 import CategoriesCard from '../CategoriesCard/CategoriesCard'
+import type { RAWGResponse } from '../../types'
 
-const CategoriesList: React.FC<any> = ({ categories }) => {
+interface CategoriesListProps {
+    categories: RAWGResponse
+}
+
+const CategoriesList: React.FC<CategoriesListProps> = ({ categories }) => {
     return (
         <>
             <ul className={styles.list}>

@@ -2,8 +2,13 @@ import { useParams } from 'react-router'
 import useGetScreenshots from '../../hooks/useGetScreenshots'
 import styles from './ScreenshotsGame.module.css'
 import { useEffect, useState } from 'react'
+import type { CategoryResult, ScreenshotsGame } from '../../types'
 
-const ScreenshotsGame: React.FC<any> = ({ loading }) => {
+interface ScreenshotsGameProps {
+    loading: boolean
+}
+
+const ScreenshotsGame: React.FC<ScreenshotsGameProps> = ({ loading }) => {
     const { id } = useParams<string>()
     const { screenshots, isLoading } = useGetScreenshots(id)
     const [fullscreenImage, setFullscreenImage] = useState<string | null>(null)
@@ -34,15 +39,17 @@ const ScreenshotsGame: React.FC<any> = ({ loading }) => {
                 <section className={styles.screenshots}>
                     <h1 className={styles.screenshots__title}>Скриншоты</h1>
                     <div className={styles.screenshots__column}>
-                        {screenshots?.results.map(({ image }: any) => (
-                            <img
-                                key={image}
-                                src={image}
-                                alt="screen"
-                                className={styles.screenshots__image}
-                                onClick={() => handleImageClick(image)}
-                            />
-                        ))}
+                        {screenshots?.results.map(
+                            ({ image }: CategoryResult) => (
+                                <img
+                                    key={image}
+                                    src={image}
+                                    alt="screen"
+                                    className={styles.screenshots__image}
+                                    onClick={() => handleImageClick(image)}
+                                />
+                            )
+                        )}
                     </div>
                     {fullscreenImage && (
                         <div

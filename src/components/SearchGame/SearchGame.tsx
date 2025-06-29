@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react' // Import useState
+import React, { useEffect, useState } from 'react'
 import ListGame from '../ListGame/ListGame'
 import styles from './SearchGame.module.css'
 import search from '../../img/search.svg'

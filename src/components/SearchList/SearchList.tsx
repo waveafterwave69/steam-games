@@ -2,8 +2,14 @@ import CardGame from '../CardGame/CardGame'
 import styles from './SearchList.module.css'
 
 import spinner from '../../img/spinner.svg'
+import type { Game } from '../../types'
 
-const SearchList: React.FC<any> = ({ games, loading }) => {
+interface SearchListProps {
+    games: Game[]
+    loading: boolean
+}
+
+const SearchList: React.FC<SearchListProps> = ({ games, loading }) => {
     return (
         <>
             {loading ? (
@@ -11,7 +17,7 @@ const SearchList: React.FC<any> = ({ games, loading }) => {
             ) : (
                 <section className={styles.search__games}>
                     <div className={styles.games__content}>
-                        {games.map((game: any) => (
+                        {games.map((game: Game) => (
                             <CardGame key={game.id} props={game} />
                         ))}
                     </div>

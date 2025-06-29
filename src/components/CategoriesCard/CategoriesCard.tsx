@@ -1,7 +1,12 @@
 import { Link } from 'react-router'
 import styles from './CategoriesCard.module.css'
+import type { CategoriesProps } from '../../types'
 
-const CategoriesCard: React.FC<any> = ({ item }) => {
+interface CategoriesCardProps {
+    item: CategoriesProps
+}
+
+const CategoriesCard: React.FC<CategoriesCardProps> = ({ item }) => {
     return (
         <>
             <Link

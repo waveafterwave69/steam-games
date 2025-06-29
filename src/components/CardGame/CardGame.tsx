@@ -15,7 +15,7 @@ interface CardGameProps {
     }
 }
 
-const CardGame: React.FC<CardGameProps | any> = ({ props }) => {
+const CardGame: React.FC<CardGameProps> = ({ props }) => {
     return (
         <Link to={`/games/${props.id}`} className={styles.games__item}>
             <img
