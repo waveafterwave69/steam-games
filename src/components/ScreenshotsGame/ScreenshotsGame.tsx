@@ -2,7 +2,7 @@ import { useParams } from 'react-router'
 import useGetScreenshots from '../../hooks/useGetScreenshots'
 import styles from './ScreenshotsGame.module.css'
 import { useEffect, useState } from 'react'
-import type { CategoryResult, ScreenshotsGame } from '../../types'
+import type { CategoryResult } from '../../types'
 
 interface ScreenshotsGameProps {
     loading: boolean

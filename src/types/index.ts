@@ -154,7 +154,7 @@ export interface CategoryResult {
     image: string
 }
 
-export interface ScreenshotsGame {
+export interface ScreenshotsGameI {
     count: number
     next: string | null
     previous: string | null

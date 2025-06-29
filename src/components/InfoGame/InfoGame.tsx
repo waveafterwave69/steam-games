@@ -6,9 +6,9 @@ import spinner from '../../img/spinner.svg'
 
 import PromoGame from '../PromoGame/PromoGame'
 import DescriptionGame from '../DescriptionGame/DescriptionGame'
-import ScreenshotsGame from '../ScreenshotsGame/ScreenshotsGame'
 import SystemGame from '../SystemGame/SystemGame'
 import SameCategories from '../SameCategories/SameCategories'
+import ScreenshotsGame from '../ScreenshotsGame/ScreenshotsGame'
 
 const InfoGame: React.FC = () => {
     const { id } = useParams<string>()
