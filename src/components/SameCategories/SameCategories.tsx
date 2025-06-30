@@ -3,7 +3,7 @@ import CategoriesCard from '../CategoriesCard/CategoriesCard'
 import styles from './SameCategories.module.css'
 
 interface SameCategoriesProps {
-    categories: CategoriesProps[]
+    categories: CategoriesProps[] | undefined
     loading: boolean
 }
 

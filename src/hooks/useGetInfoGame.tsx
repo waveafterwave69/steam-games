@@ -3,13 +3,13 @@ import { getGameInfo } from '../data/data'
 import type { Game } from '../types'
 
 interface UseGetInfoGameReturn {
-    game: Game | null
+    game: Game | undefined
     loading: boolean
     error: Error | string | null
 }
 
 const useGetInfoGame = (id: string | undefined): UseGetInfoGameReturn => {
-    const [game, setGame] = useState<Game | null>(null)
+    const [game, setGame] = useState<Game | undefined>()
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState<Error | string | null>(null)
 
@@ -23,12 +23,10 @@ const useGetInfoGame = (id: string | undefined): UseGetInfoGameReturn => {
                     setGame(response.data)
                 } else {
                     setError('Error while getting game: Invalid response')
-                    setGame(null)
                 }
             } catch (error: any) {
                 console.error('Error fetching games:', error)
                 setError(error.message || 'An unexpected error occurred')
-                setGame(null)
             } finally {
                 setLoading(false)
             }

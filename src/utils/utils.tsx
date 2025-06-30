@@ -5,7 +5,7 @@ import ps from '../img/ps.svg'
 import xbox from '../img/xbox.svg'
 
 export const capitalizeWords = (
-    str: string,
+    str: string | undefined,
     addStr: string,
     deleteStr: string
 ): any => {

@@ -15,7 +15,6 @@ const SearchGame: React.FC = () => {
         setSearchTerm,
         games,
         loading,
-        error,
         search: memoizedSearchGames,
     } = useGetSearchGames(localSearchTerm)
 
@@ -62,8 +61,6 @@ const SearchGame: React.FC = () => {
                     />
                 </button>
             </div>
-
-            {error && <div className="error-message">Ошибка: {error}</div>}
 
             {localSearchTerm.length > 0 ? (
                 <SearchList games={games} loading={loading} />

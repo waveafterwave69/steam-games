@@ -5,7 +5,7 @@ import star from '../../img/star.svg'
 import type { Game } from '../../types'
 
 interface PromoGameProps {
-    game: Game
+    game: Game | undefined
     loading: boolean
 }
 

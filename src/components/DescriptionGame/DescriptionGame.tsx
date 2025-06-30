@@ -4,7 +4,7 @@ import metacritic from '../../img/metacritic.svg'
 import type { Game } from '../../types'
 
 interface CardGameProps {
-    game: Game
+    game: Game | undefined
     loading: boolean
 }
 

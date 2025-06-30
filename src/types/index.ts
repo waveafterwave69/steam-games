@@ -82,6 +82,7 @@ export interface Game {
     slug: string
     name: string
     released: string
+    tags: []
     tba: boolean
     description_raw: string
     metacritic_url: string
