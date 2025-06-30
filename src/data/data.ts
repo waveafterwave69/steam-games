@@ -1,4 +1,5 @@
 import axios, { type AxiosResponse } from 'axios'
+import type { Game } from '../types'
 
 const apiKey = '1be5eb6fe4a1470ead03675c6825d0d3'
 
@@ -18,9 +19,9 @@ export async function getGames(page: number) {
 
 export const searchGame = async (
     searchTerm: string
-): Promise<AxiosResponse<any> | undefined> => {
+): Promise<AxiosResponse<Game> | undefined> => {
     try {
-        const response: AxiosResponse<any> = await axios.get(
+        const response: AxiosResponse<Game> = await axios.get(
             `https://api.rawg.io/api/games`,
             {
                 params: {

@@ -2,40 +2,51 @@ import { useEffect, useState, useCallback } from 'react'
 import type { RAWGResponse } from '../types'
 import { getCurrCategory } from '../data/data'
 
-interface UseGetSearchGamesReturn {
+interface UseGetCurrCategoriesReturn {
     pageCount: number
-    category: RAWGResponse[]
+    category: RAWGResponse[] // Array of RAWGResponse
     isLoading: boolean
-    error: Error
+    error: Error | null // Error can be null or an Error object
     next: () => void
 }
 
 const useGetCurrCategories = (
     id: string | undefined
-): UseGetSearchGamesReturn => {
+): UseGetCurrCategoriesReturn => {
     const [pageCount, setPageCount] = useState<number>(1)
     const [category, setCategory] = useState<RAWGResponse[]>([])
     const [isLoading, setIsLoading] = useState<boolean>(false)
-    const [error, setError] = useState<any>(null)
+    const [error, setError] = useState<Error | null>(null)
 
     const fetchGames = useCallback(
         async (page: number) => {
             setIsLoading(true)
             try {
-                const currCategory = await getCurrCategory(id, page)
+                const currCategory: RAWGResponse | any = await getCurrCategory(
+                    id,
+                    page
+                )
+
                 if (currCategory) {
-                    setCategory((prev: any) => [...prev, currCategory])
+                    setCategory((prev: RAWGResponse[]) => [
+                        ...prev,
+                        currCategory,
+                    ])
                 } else {
-                    setError('Error while getting games')
+                    setError(new Error('Error while getting games'))
                 }
-            } catch (error) {
-                console.error('Error fetching games:', error)
-                setError(error)
+            } catch (e: any) {
+                console.error('Error fetching games:', e)
+                setError(
+                    e instanceof Error
+                        ? e
+                        : new Error('An unexpected error occurred')
+                )
             } finally {
                 setIsLoading(false)
             }
         },
-        [getCurrCategory]
+        [id, getCurrCategory]
     )
 
     useEffect(() => {

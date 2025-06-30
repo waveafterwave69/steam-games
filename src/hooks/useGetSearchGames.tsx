@@ -1,6 +1,5 @@
 import { useCallback, useState, useEffect } from 'react'
 import { searchGame } from '../data/data'
-import type { AxiosResponse } from 'axios'
 import type { Game } from '../types'
 
 interface UseGetSearchGamesReturn {
@@ -8,7 +7,7 @@ interface UseGetSearchGamesReturn {
     setSearchTerm: React.Dispatch<React.SetStateAction<string>>
     games: Game[]
     loading: boolean
-    error: string | null
+    error: Error | string | null
     search: () => Promise<void>
 }
 
@@ -18,7 +17,7 @@ const useGetSearchGames = (
     const [searchTerm, setSearchTerm] = useState(initialSearchTerm)
     const [games, setGames] = useState<Game[]>([])
     const [loading, setLoading] = useState(false)
-    const [error, setError] = useState<string | null>(null)
+    const [error, setError] = useState<Error | string | null>(null)
 
     const search = useCallback(async () => {
         if (!searchTerm) {
@@ -30,9 +29,7 @@ const useGetSearchGames = (
         setError(null)
 
         try {
-            const response: AxiosResponse<any> | undefined = await searchGame(
-                searchTerm
-            )
+            const response: Game | any = await searchGame(searchTerm)
 
             if (response && response.status === 200 && response.data.results) {
                 setGames(response.data.results)

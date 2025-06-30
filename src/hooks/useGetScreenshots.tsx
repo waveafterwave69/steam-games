@@ -1,23 +1,28 @@
 import { useCallback, useState, useEffect } from 'react'
 import { getGameInfo, getScreenshots } from '../data/data'
+import type { ScreenshotsGameI } from '../types'
 
 interface UseGetInfoGameReturn {
-    screenshots: any
+    screenshots: ScreenshotsGameI | null
     isLoading: boolean
-    error: string | null
+    error: Error | string | null
 }
 
 const useGetScreenshots = (id: string | undefined): UseGetInfoGameReturn => {
-    const [screenshots, setScreenshots] = useState<any | null>(null)
+    const [screenshots, setScreenshots] = useState<ScreenshotsGameI | null>(
+        null
+    )
     const [isLoading, setLoading] = useState(false)
-    const [error, setError] = useState<string | null>(null)
+    const [error, setError] = useState<Error | string | null>(null)
 
     const fetchGames = useCallback(
         async (id: string | undefined) => {
             setLoading(true)
             setError(null)
             try {
-                const response: any = await getScreenshots(id)
+                const response: ScreenshotsGameI | any = await getScreenshots(
+                    id
+                )
                 if (response && response.status === 200) {
                     setScreenshots(response.data)
                 } else {
