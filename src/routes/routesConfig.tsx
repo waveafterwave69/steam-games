@@ -1,5 +1,6 @@
 import SingleCategory from '../components/SingleCategory/SingleCategory'
 import CategoriesPage from '../pages/CategoriesPage/CategoriesPage'
+import FavoritesPage from '../pages/FavoritesPage/FavoritesPage'
 import GamesPage from '../pages/GamesPage/GamesPage'
 import InfoPage from '../pages/InfoPage/InfoPage'
 import MainPage from '../pages/MainPage/MainPage'
@@ -8,7 +9,6 @@ export const routesConfig = [
     {
         page: <MainPage />,
         url: '/',
-        text: 'main',
     },
     {
         page: <GamesPage />,
@@ -27,5 +27,10 @@ export const routesConfig = [
     {
         page: <InfoPage />,
         url: '/games/:id',
+    },
+    {
+        page: <FavoritesPage />,
+        url: '/favorites',
+        text: 'favorites',
     },
 ]

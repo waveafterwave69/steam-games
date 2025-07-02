@@ -1,14 +1,11 @@
 import styles from './ListGame.module.css'
-
 import CardGame from '../CardGame/CardGame'
 import useGetGames from '../../hooks/useGetGames'
-
 import spinner from '../../img/spinner.svg'
 import type { Game, RAWGResponse } from '../../types'
 
 const ListGame: React.FC = () => {
     const { gamesPage, isLoading, next } = useGetGames()
-    console.log(gamesPage)
 
     return (
         <>
@@ -17,8 +14,11 @@ const ListGame: React.FC = () => {
                     <div className={styles.games__content}>
                         {gamesPage &&
                             gamesPage.map((el: RAWGResponse) =>
-                                el.data.results.map((el: Game) => (
-                                    <CardGame key={el.id} props={el} />
+                                el.data.results.map((game: Game) => (
+                                    <div key={game.id}>
+                                        {' '}
+                                        <CardGame props={game} />
+                                    </div>
                                 ))
                             )}
                     </div>
@@ -31,7 +31,11 @@ const ListGame: React.FC = () => {
                             More Games
                         </button>
                     ) : (
-                        <img src={spinner} className={styles.spinner} />
+                        <img
+                            src={spinner}
+                            className={styles.spinner}
+                            alt="Loading..."
+                        />
                     )}
                 </ul>
             </section>
